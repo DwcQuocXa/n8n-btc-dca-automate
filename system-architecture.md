@@ -1,8 +1,8 @@
-# Crypto Trading System Architecture
+# Crypto DCA System Architecture
 
 ## 🏗️ System Overview
 
-This automated crypto trading system implements a sophisticated strategy that combines sentiment-driven trading with dynamic portfolio management. The architecture is built on n8n workflow automation with multiple external integrations and embedded risk management.
+This automated crypto DCA system implements a sophisticated strategy that combines sentiment-driven DCA with dynamic portfolio management. The architecture is built on n8n workflow automation with multiple external integrations and embedded risk management.
 
 ## 📊 Architecture Components
 
@@ -20,7 +20,7 @@ This automated crypto trading system implements a sophisticated strategy that co
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │ Fear & Greed    │    │   Binance API   │    │ Google Sheets   │
-│ Index API       │    │  (Trading &     │    │   (Logging)     │
+│ Index API       │    │  (DCA &     │    │   (Logging)     │
 │ (Sentiment)     │    │   Portfolio)    │    │                 │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
          │                       │                       │
@@ -34,18 +34,18 @@ This automated crypto trading system implements a sophisticated strategy that co
 
 ## 🔄 Workflow Architecture
 
-### 1. Daily Trading Workflow
+### 1. Daily DCA Workflow
 **Triggers**: Both daily and monthly cron triggers feed into the same workflow
-**Purpose**: Execute sentiment-driven trades on satellite portfolio (daily) or rebalancing (monthly)
+**Purpose**: Execute sentiment-driven DCA on satellite portfolio (daily) or rebalancing (monthly)
 
 ```mermaid
 flowchart TD
-    A[Daily Trading Trigger<br/>Cron Schedule] --> C[Get Fear & Greed Index]
+    A[Daily DCA Trigger<br/>Cron Schedule] --> C[Get Fear & Greed Index]
     B[Monthly Rebalance Trigger<br/>Cron Schedule] --> C
     C --> D[Get BTC Price]
     D --> E[Get BTC 20-Day MA]
     E --> F[Get Binance Account Data]
-    F --> G[Trading Logic Engine]
+    F --> G[DCA Logic Engine]
     F --> H[Rebalancing Logic]
     G --> I{Should Execute Trade?}
     H --> J{Should Rebalance?}
@@ -55,7 +55,7 @@ flowchart TD
     J -->|No| N[Log Rebalancing to Sheets]
     K --> O[Sign Order]
     O --> P[Execute Trade on Binance]
-    P --> Q[Format Trading Message]
+    P --> Q[Format DCA Message]
     Q --> R[Send Telegram Notification]
     M --> S[Send Rebalance Notification]
     L --> Q
@@ -68,12 +68,12 @@ flowchart TD
 - Fear & Greed Index retrieval
 - BTC price and 20-day MA calculation
 - Portfolio balance fetching
-- Parallel execution of trading and rebalancing logic
+- Parallel execution of DCA and rebalancing logic
 
-## 🧠 Trading Logic Details
+## 🧠 DCA Logic Details
 
-### Daily Sentiment-Based Trading Rules
-The system uses the Fear & Greed Index to determine market sentiment and adjust satellite trading behavior:
+### Daily Sentiment-Based DCA Rules
+The system uses the Fear & Greed Index to determine market sentiment and adjust satellite DCA behavior:
 
 | Index Range | Sentiment | Action | Satellite Pool % | Rationale |
 |------------|-----------|---------|------------------|-----------|
@@ -110,7 +110,7 @@ The system adjusts the core portfolio target allocation based on Fear & Greed In
 - **Trade Type**: Limit orders to minimize slippage
 
 #### Satellite Portfolio (30% of total capital)
-- **Purpose**: Daily active trading based on sentiment
+- **Purpose**: Daily active DCA based on sentiment
 - **Strategy**: Fear & Greed Index driven
 - **Risk Level**: Higher frequency, smaller position sizes
 - **Trade Type**: Limit orders with 1% slippage tolerance
@@ -125,7 +125,7 @@ RISK_CONFIG = {
   PORTFOLIO: {
     TARGET_BTC_ALLOCATION: 0.75,     // Base 75% BTC target (dynamic)
     REBALANCE_BAND: 0.05,            // ±5% rebalancing threshold
-    SATELLITE_POOL_PERCENTAGE: 0.3,  // 30% for active trading
+    SATELLITE_POOL_PERCENTAGE: 0.3,  // 30% for active DCA
   },
   TRADING: {
     MAX_TRADES_PER_WEEK: 3,          // Maximum satellite trades per week
@@ -141,8 +141,8 @@ RISK_CONFIG = {
 ```
 
 ### Circuit Breakers
-1. **Portfolio Protection**: Stop trading if portfolio declines >20% in 7 days
-2. **Volatility Protection**: Stop trading if BTC declines >10% in 24 hours
+1. **Portfolio Protection**: Stop DCA if portfolio declines >20% in 7 days
+2. **Volatility Protection**: Stop DCA if BTC declines >10% in 24 hours
 3. **Liquidity Protection**: Maintain minimum balances (0.01 BTC, 100 EUR)
 4. **Frequency Control**: Maximum 3 satellite trades per week, monthly rebalancing only
 
@@ -163,21 +163,21 @@ Daily/Monthly Trigger → Get Fear & Greed Index → Get BTC Price → Get BTC 2
 
 #### 2. Logic Processing Nodes
 ```
-Trading Logic Engine (Daily)     ┐
+DCA Logic Engine (Daily)     ┐
                                 ├─ Parallel Execution
 Rebalancing Logic (Monthly)     ┘
 ```
 
 #### 3. Execution Branches
 ```
-Trading Path:
+DCA Path:
 Should Execute Trade? → Prepare Order Parameters → Sign Order → Execute Trade on Binance
 
 Rebalancing Path:  
 Should Rebalance? → Format Rebalance Message → Send Rebalance Notification
 
 Both Paths Converge:
-Format Trading Message → Send Telegram Notification → Log to Google Sheets
+Format DCA Message → Send Telegram Notification → Log to Google Sheets
 ```
 
 ### Input Data Sources
@@ -192,7 +192,7 @@ Binance API
 ├── Price Data: /api/v3/ticker/price?symbol=BTCEUR
 ├── Historical Data: /api/v3/klines (20-day MA calculation)
 ├── Account Data: /api/v3/account (authenticated)
-├── Trading: /api/v3/order (authenticated)
+├── DCA: /api/v3/order (authenticated)
 └── Authentication: HMAC SHA256 with environment variables
 
 Portfolio Calculations
@@ -206,8 +206,8 @@ Portfolio Calculations
 ### Output Data Streams
 ```
 Google Sheets Logging (Two Sheets)
-├── Trading Log (Sheet ID: 0)
-│   ├── All daily trading activities and decisions
+├── DCA Log (Sheet ID: 0)
+│   ├── All daily DCA activities and decisions
 │   ├── Trade execution results and errors  
 │   └── Portfolio metrics and performance tracking
 └── Rebalancing Log (Sheet ID: 352730297)
@@ -231,7 +231,7 @@ Binance Orders
 ## ⚡ Performance Optimization
 
 ### Efficient Workflow Design
-- **Parallel Logic Execution**: Trading and rebalancing logic run simultaneously
+- **Parallel Logic Execution**: DCA and rebalancing logic run simultaneously
 - **Single Data Pipeline**: All triggers share the same data collection nodes
 - **Embedded Configuration**: No external file dependencies
 - **Optimized API Calls**: Minimal requests with comprehensive error handling
@@ -246,7 +246,7 @@ Binance Orders
 
 ### Comprehensive Logging
 Every action is logged with detailed context:
-- **Trading Decisions**: Fear & Greed Index, calculated trade sizes, rationale
+- **DCA Decisions**: Fear & Greed Index, calculated DCA sizes, rationale
 - **Rebalancing Decisions**: Current vs target allocations, trade amounts
 - **Execution Results**: Order IDs, executed quantities, error messages
 - **System Health**: API response times, error frequencies
@@ -260,7 +260,7 @@ API Call Failures
 ├── Graceful degradation
 └── Comprehensive error logging
 
-Trading Execution Errors
+DCA Execution Errors
 ├── Circuit breaker activation
 ├── Position preservation
 ├── Error message to Telegram
@@ -293,7 +293,7 @@ Docker Composition
 ### Environment Configuration
 ```
 Required Environment Variables
-├── BINANCE_API_KEY (trading authentication)
+├── BINANCE_API_KEY (DCA authentication)
 ├── BINANCE_SECRET_KEY (signature generation)  
 ├── TELEGRAM_CHAT_ID (notification target)
 └── N8N_ENCRYPTION_KEY (credential security)
@@ -345,7 +345,7 @@ All configuration is embedded within the workflow Code nodes:
 
 ### Automated System Health
 - **Self-Monitoring**: Built-in error detection and reporting
-- **Circuit Breakers**: Automatic trading suspension on risk triggers
+- **Circuit Breakers**: Automatic DCA suspension on risk triggers
 - **Graceful Degradation**: System continues with reduced functionality
 - **State Preservation**: Workflow maintains critical data between executions
 
@@ -355,4 +355,4 @@ All configuration is embedded within the workflow Code nodes:
 - **Semi-Annual Optimization**: Strategy effectiveness review
 - **Annual Architecture**: System architecture and scaling review
 
-This architecture provides a robust, self-contained automated trading system with comprehensive risk management, monitoring, and error handling capabilities while maintaining simplicity in deployment and maintenance. 
+This architecture provides a robust, self-contained automated DCA system with comprehensive risk management, monitoring, and error handling capabilities while maintaining simplicity in deployment and maintenance. 

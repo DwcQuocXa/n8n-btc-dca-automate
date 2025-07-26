@@ -1,22 +1,22 @@
-# 🤖 Automated Crypto Trading System
+# 🤖 Automated Crypto DCA System
 
-A sophisticated, sentiment-driven Bitcoin trading system built on n8n that combines Fear & Greed Index analysis with dynamic portfolio management and comprehensive risk controls.
+A sophisticated, sentiment-driven Bitcoin DCA system built on n8n that combines Fear & Greed Index analysis with dynamic portfolio management and comprehensive risk controls.
 
 ## 🎯 Strategy Overview
 
 This system implements a dual-approach strategy:
 - **Core Portfolio (30%)**: Dynamic BTC allocation (60-85%) based on Fear & Greed Index
-- **Satellite Portfolio (30%)**: Active trading based on daily sentiment analysis
+- **Satellite Portfolio (30%)**: Active DCA based on daily sentiment analysis
 
 The bot executes daily trades at the configured cron schedule and performs monthly rebalancing on the 1st of each month, with comprehensive risk management and logging.
 
 ## 📁 File Structure
 
 ### Core System Files
-- **`crypto-trading-workflow.json`** - Complete n8n workflow (IMPORT THIS INTO N8N)
+- **`crypto-dca-workflow.json`** - Complete n8n workflow (IMPORT THIS INTO N8N)
 - **`docker-compose.yml`** - Infrastructure setup (PostgreSQL + n8n)
 - **`risk-management-config.js`** - Risk parameters reference
-- **`risk-management-trading-logic.js`** - Trading logic reference
+- **`risk-management-dca-logic.js`** - DCA logic reference
 
 ### Documentation
 - **`setup-instructions.md`** - Complete setup guide
@@ -25,11 +25,11 @@ The bot executes daily trades at the configured cron schedule and performs month
 - **`README.md`** - This file
 
 ### Important Notes
-- ✅ **`crypto-trading-workflow.json`** contains ALL the logic and configuration
+- ✅ **`crypto-dca-workflow.json`** contains ALL the logic and configuration
 - 📖 **`risk-management-*.js`** files are for reference/documentation only
 - 🚫 n8n cannot import external JavaScript files - everything must be in the workflow JSON
 
-## 🚀 Quick Start
+## �� Quick Start
 
 1. **Setup Environment**:
    ```bash
@@ -45,7 +45,7 @@ The bot executes daily trades at the configured cron schedule and performs month
 
 3. **Import Workflow**:
    - Open n8n at `http://localhost:5678`
-   - Import `crypto-trading-workflow.json`
+   - Import `crypto-dca-workflow.json`
    - Configure credentials (Binance, Google Sheets, Telegram)
 
 4. **Test Thoroughly**:
@@ -53,9 +53,9 @@ The bot executes daily trades at the configured cron schedule and performs month
    - Start with Binance testnet
    - Use minimal capital initially
 
-## 🧠 Trading Logic
+## 🧠 DCA Logic
 
-### Daily Trading - Fear & Greed Index Rules
+### Daily DCA - Fear & Greed Index Rules
 | Index | Sentiment | Action | Satellite % | Description |
 |-------|-----------|---------|-------------|-------------|
 | 0-20 | Extreme Fear | BUY | 7.5% | Aggressive buying opportunity |
@@ -82,8 +82,8 @@ The bot executes daily trades at the configured cron schedule and performs month
 ## 🛡️ Risk Management
 
 ### Circuit Breakers
-- Stop trading if portfolio declines >20% in 7 days
-- Stop trading if BTC declines >10% in 24 hours
+- Stop DCA if portfolio declines >20% in 7 days
+- Stop DCA if BTC declines >10% in 24 hours
 - Maintain minimum balances (0.01 BTC, 100 EUR)
 
 ### Position Controls
@@ -101,7 +101,7 @@ The bot executes daily trades at the configured cron schedule and performs month
 
 ### Google Sheets Integration
 Two separate sheets for comprehensive tracking:
-- **Trading Log**: Daily trading activities and decisions
+- **DCA Log**: Daily DCA activities and decisions
 - **Rebalancing Log**: Monthly portfolio adjustments
 - Real-time portfolio metrics and performance tracking
 
@@ -118,7 +118,7 @@ Two separate sheets for comprehensive tracking:
 - **Risk-First**: Multiple circuit breakers and position limits
 - **Fully Automated**: No manual intervention required
 - **Comprehensive Logging**: Every action tracked and reported
-- **Monthly Rebalancing**: Prevents overtrading while maintaining targets
+- **Monthly Rebalancing**: Prevents over-DCA while maintaining targets
 
 ## 🔧 Configuration
 
@@ -129,7 +129,7 @@ To modify risk parameters:
 4. Save and activate workflow
 
 Key configurable parameters:
-- Fear & Greed Index trading percentages
+- Fear & Greed Index DCA percentages
 - Dynamic rebalancing targets
 - Circuit breaker thresholds
 - Minimum balance requirements
@@ -137,10 +137,10 @@ Key configurable parameters:
 
 ## ⚠️ Important Disclaimers
 
-- **High Risk**: Automated trading with real money - you could lose everything
+- **High Risk**: Automated DCA with real money - you could lose everything
 - **Test First**: Use Binance testnet and small amounts initially
 - **Monitor Closely**: Especially during first few weeks of operation
-- **Understand Risks**: Cryptocurrency trading is highly volatile and risky
+- **Understand Risks**: Cryptocurrency DCA is highly volatile and risky
 - **Not Financial Advice**: This is educational/experimental software
 
 ## 📈 Performance Tracking

@@ -44,7 +44,7 @@ services:
       - DB_POSTGRESDB_USER=n8n_user
       - DB_POSTGRESDB_PASSWORD=n8n_password
       - NODE_FUNCTION_ALLOW_BUILTIN=crypto,https,url
-      # Trading Bot Environment Variables (from .env file)
+      # DCA Bot Environment Variables (from .env file)
       - BINANCE_API_KEY=${BINANCE_API_KEY}
       - BINANCE_SECRET_KEY=${BINANCE_SECRET_KEY}
       - GOOGLE_SHEET_ID=${GOOGLE_SHEET_ID}

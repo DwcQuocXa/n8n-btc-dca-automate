@@ -1,7 +1,7 @@
-# Crypto Trading Bot Setup Instructions
+# Crypto DCA Bot Setup Instructions
 
 ## 🚨 IMPORTANT DISCLAIMER
-This is an automated trading system that will execute real trades with real money. Please thoroughly test in a sandbox environment first and understand the risks involved. Cryptocurrency trading is highly risky and you could lose all your invested capital.
+This is an automated DCA system that will execute real buys with real money. Please thoroughly test in a sandbox environment first and understand the risks involved. Cryptocurrency DCA is highly risky and you could lose all your invested capital.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ This is an automated trading system that will execute real trades with real mone
 
 1. Log into your Binance account
 2. Go to API Management and create a new API key
-3. **CRITICAL**: Enable only "Spot & Margin Trading" permissions
+3. **CRITICAL**: Enable only "Spot & Margin DCA" permissions
 4. **SECURITY**: Restrict IP access to your server IP
 5. **TESTING**: Start with Binance Testnet for testing
    - Testnet URL: `https://testnet.binance.vision/`
@@ -26,10 +26,10 @@ This is an automated trading system that will execute real trades with real mone
 1. Create a new Google Sheet with the ID: `1_ezPrObjvCajRD_oB3jJWx_xVTOXgTq-B5Kd_jAnrug`
    - Or create your own and update the workflow with your Sheet ID
 2. Create two sheets with the exact names:
-   - **Sheet 1**: "Trading Log" (ID: 0)  
+   - **Sheet 1**: "DCA Log" (ID: 0)  
    - **Sheet 2**: "Rebalancing Log" (ID: 352730297)
 
-### Trading Log Headers (Sheet 1):
+### DCA Log Headers (Sheet 1):
 | Date | Time | Fear_Greed_Index | Action | Trade_Size_Percent | Trade_Size_EUR | Trade_Size_BTC | BTC_Price | BTC_Allocation_Percent | Total_Portfolio_Value | Order_ID | Executed_Qty | Trade_Status | Error_Message | Notes |
 
 ### Rebalancing Log Headers (Sheet 2):
@@ -86,7 +86,7 @@ docker-compose logs -f postgres
 
 1. Log into n8n (admin/admin123 by default - change this!)
 2. Go to "Workflows" → "Import from JSON"
-3. Upload or paste the contents of `crypto-trading-workflow.json`
+3. Upload or paste the contents of `crypto-dca-workflow.json`
 4. Set up all required credentials
 
 ### Required Credentials:
@@ -111,7 +111,7 @@ docker-compose logs -f postgres
 
 ### Update Cron Triggers (Optional)
 The workflow includes two triggers:
-- **Daily Trading**: Set to your preferred time (default: daily)
+- **Daily DCA**: Set to your preferred time (default: daily)
 - **Monthly Rebalancing**: Set to your preferred time (default: monthly)
 
 ### Verify Environment Variables
@@ -135,8 +135,8 @@ Check that these are accessible in your workflow:
    ```
 
 ### Phase 2: Logic Testing (Dry Run)
-1. **Disable Trading**: Comment out or disconnect the "Execute Trade on Binance" node
-2. **Test Trading Logic**: Run the complete workflow to verify calculations
+1. **Disable DCA**: Comment out or disconnect the "Execute DCA on Binance" node
+2. **Test DCA Logic**: Run the complete workflow to verify calculations
 3. **Test Rebalancing Logic**: Verify monthly rebalancing calculations
 4. **Check Logging**: Ensure Google Sheets entries are created correctly
 
@@ -163,9 +163,9 @@ RISK_CONFIG = {
   PORTFOLIO: {
     TARGET_BTC_ALLOCATION: 0.75,     // Base 75% BTC target
     REBALANCE_BAND: 0.05,            // ±5% rebalancing threshold
-    SATELLITE_POOL_PERCENTAGE: 0.3,  // 30% for active trading
+    SATELLITE_POOL_PERCENTAGE: 0.3,  // 30% for active DCA
   },
-  TRADING: {
+  DCA: {
     MAX_TRADES_PER_WEEK: 3,          // Maximum satellite trades
     SLIPPAGE_TOLERANCE: 0.01,        // 1% maximum slippage
     MIN_BTC_BALANCE: 0.01,           // Minimum BTC to maintain
@@ -183,7 +183,7 @@ RISK_CONFIG = {
 - [ ] IP restrictions enabled on Binance API
 - [ ] 2FA enabled on all accounts
 - [ ] `.env` file in `.gitignore`
-- [ ] Backup funds not in trading account
+- [ ] Backup funds not in DCA account
 - [ ] Emergency stop procedure documented
 
 ## Step 10: Monitoring & Maintenance
@@ -207,7 +207,7 @@ RISK_CONFIG = {
 
 ## Emergency Procedures
 
-### Stop All Trading Immediately
+### Stop All DCA Immediately
 1. **Pause Workflows**: Disable both cron triggers in n8n
 2. **Manual Override**: Manually close any open positions if needed
 3. **Secure Funds**: Move funds to cold storage if necessary
@@ -253,7 +253,7 @@ RISK_CONFIG = {
 ## Legal & Compliance
 
 - **Tax Reporting**: Maintain detailed trade logs
-- **Regulatory Compliance**: Understand local crypto trading laws
+- **Regulatory Compliance**: Understand local crypto DCA laws
 - **Professional Advice**: Consult tax and legal professionals
 - **Risk Disclosure**: Document and understand all risks
 

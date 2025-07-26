@@ -1,8 +1,8 @@
-# Crypto Trading Bot Testing Checklist
+# Crypto DCA Bot Testing Checklist
 
 ## ⚠️ CRITICAL: Test Everything Before Going Live!
 
-This checklist ensures your trading bot works correctly and safely before risking real money.
+This checklist ensures your DCA bot works correctly and safely before risking real money.
 
 ## Phase 1: Infrastructure Testing
 
@@ -10,14 +10,14 @@ This checklist ensures your trading bot works correctly and safely before riskin
 - [ ] Docker containers start successfully (`docker-compose up -d`)
 - [ ] PostgreSQL database is accessible and healthy
 - [ ] n8n web interface loads at http://localhost:5678
-- [ ] Workflow imports from `crypto-trading-workflow.json` without errors
+- [ ] Workflow imports from `crypto-dca-workflow.json` without errors
 - [ ] All required credentials are configured and validated
 
 ### ✅ API Connectivity Testing
 - [ ] **Fear & Greed Index API**: Manually test "Get Fear & Greed Index" node
 - [ ] **Binance API**: Test "Get BTC Price" and "Get BTC 20-Day MA" nodes
 - [ ] **Binance Account Data**: Test authenticated account data retrieval
-- [ ] **Google Sheets API**: Verify both Trading Log and Rebalancing Log sheets
+- [ ] **Google Sheets API**: Verify both DCA Log and Rebalancing Log sheets
 - [ ] **Telegram Bot**: Send test message and verify receipt
 - [ ] All API timeouts (10 seconds) and retry mechanisms (3 attempts) work
 
@@ -30,7 +30,7 @@ This checklist ensures your trading bot works correctly and safely before riskin
 
 ## Phase 2: Logic Testing (Dry Run)
 
-### ✅ Daily Trading Logic - Fear & Greed Index Scenarios
+### ✅ Daily DCA Logic - Fear & Greed Index Scenarios
 **Disable "Execute Trade on Binance" node and test each scenario:**
 
 **Extreme Fear (0-20)**:
@@ -90,12 +90,12 @@ This checklist ensures your trading bot works correctly and safely before riskin
 **Test all safety mechanisms:**
 
 **Portfolio Protection**:
-- [ ] Trading stops if portfolio declines >20% in 7 days
+- [ ] DCA stops if portfolio declines >20% in 7 days
 - [ ] Circuit breaker message logged properly
 - [ ] System preserves existing positions
 
 **Volatility Protection**:
-- [ ] Trading stops if BTC declines >10% in 24 hours
+- [ ] DCA stops if BTC declines >10% in 24 hours
 - [ ] Proper circuit breaker activation and logging
 
 **Minimum Balance Protection**:
@@ -122,14 +122,14 @@ This checklist ensures your trading bot works correctly and safely before riskin
 - [ ] **Daily Trigger**: Fires at configured time
 - [ ] **Monthly Trigger**: Fires at configured time
 - [ ] All nodes execute in correct sequence without errors
-- [ ] Both trading and rebalancing logic execute in parallel
+- [ ] Both DCA and rebalancing logic execute in parallel
 - [ ] Workflow completes within reasonable time (< 60 seconds)
 - [ ] Error handling works for failed API calls with proper retries
 
 ### ✅ Google Sheets Logging Validation
 
-**Trading Log (Sheet ID: 0)**:
-- [ ] Creates new row for each trading decision
+**DCA Log (Sheet ID: 0)**:
+- [ ] Creates new row for each DCA decision
 - [ ] All columns populated: Date, Time, Fear_Greed_Index, Action, Trade_Size_Percent, Trade_Size_USDT, Trade_Size_BTC, BTC_Price, BTC_Allocation_Percent, Total_Portfolio_Value, Order_ID, Executed_Qty, Trade_Status, Error_Message, Notes
 - [ ] HOLD decisions logged properly
 - [ ] Trade execution results logged with order details
@@ -143,7 +143,7 @@ This checklist ensures your trading bot works correctly and safely before riskin
 
 ### ✅ Telegram Notifications Testing
 
-**Daily Trading Notifications**:
+**Daily DCA Notifications**:
 - [ ] HOLD decisions send properly formatted messages
 - [ ] Trade execution results include all relevant data
 - [ ] Error notifications include detailed context and troubleshooting info
@@ -165,7 +165,7 @@ This checklist ensures your trading bot works correctly and safely before riskin
 - [ ] Testnet API keys obtained from https://testnet.binance.vision/
 - [ ] Workflow API URLs updated to `https://testnet.binance.vision/api/`
 - [ ] Test USDT and BTC balances received in testnet account
-- [ ] Account permissions verified (spot trading enabled)
+- [ ] Account permissions verified (spot DCA enabled)
 
 ### ✅ Signature Generation Testing
 - [ ] HMAC SHA256 signatures generate correctly
@@ -202,7 +202,7 @@ This checklist ensures your trading bot works correctly and safely before riskin
 ## Phase 5: Security & Authentication Testing
 
 ### ✅ API Security Validation
-- [ ] Binance API keys have only "Spot & Margin Trading" permissions
+- [ ] Binance API keys have only "Spot & Margin DCA" permissions
 - [ ] IP restrictions properly configured and tested
 - [ ] 2FA enabled on Binance account
 - [ ] API key not exposed in any logs or error messages
@@ -277,7 +277,7 @@ This checklist ensures your trading bot works correctly and safely before riskin
 
 🚨 **Financial Issues**:
 - Portfolio declining faster than BTC benchmark
-- Excessive trading frequency beyond limits
+- Excessive DCA frequency beyond limits
 - Trades executing outside acceptable slippage
 - Balance calculations not matching exchange
 - Unauthorized or unexpected trades
@@ -291,7 +291,7 @@ This checklist ensures your trading bot works correctly and safely before riskin
 
 ## Emergency Procedures
 
-### Immediate Trading Halt
+### Immediate DCA Halt
 1. **Disable Triggers**: Turn off both daily and monthly cron triggers in n8n
 2. **Manual Position Review**: Check all open positions manually
 3. **Secure Funds**: Consider moving funds to cold storage if necessary
