@@ -22,13 +22,31 @@ The result? A complete automated DCA system built in a weekend without typing a 
 
 ## Enter n8n: Visual Workflow Automation
 
-I chose n8n as my automation platform - a tool that promises visual programming without needing to be a developer. The setup was surprisingly smooth:
+I chose n8n as my automation platform - a tool that promises visual programming without needing to be a developer. The setup was surprisingly smooth with Docker:
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  n8n:
+    image: n8nio/n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=password
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+```
 
 ```bash
 docker-compose up -d
 ```
 
-That's it. No complicated installations, no dependency hell - just Docker doing its thing.
+That's it. The n8n Docker image handles everything - Node.js runtime, all dependencies, the web UI, workflow engine, and even a SQLite database for storing your workflows. No npm installs, no version conflicts, no dependency hell. Just pull the image and you're running a full workflow automation platform on port 5678.
+
+The `./n8n_data` volume ensures your workflows persist between container restarts, and basic auth keeps your instance secure. Within minutes, I had a production-ready n8n instance running locally.
 
 ## The Technical Challenge
 
@@ -73,22 +91,11 @@ Cron Trigger (1st of Month)
 
 The system automatically classifies market conditions:
 
-| Regime | Criteria | Strategy Impact |
-|--------|----------|-----------------|
-| 🚀 **Bull Market** | Price > MA50 AND MA50 > MA200 AND 30D return > 20% | Higher allocations, trend-aware selling |
-| 🐻 **Bear Market** | Price < MA50 AND MA50 < MA200 AND 30D return < -20% | Standard allocations, aggressive buying |
-| ⚖️ **Neutral** | Mixed signals | Base allocations, balanced approach |
+![Market Regime Detection Table](table-market-regime-detection.md)
 
 ### Fear & Greed Based Trading Rules
 
-| Index | Sentiment | Action | Trade Size | **Bull Market Filter** |
-|-------|-----------|---------|------------|------------------------|
-| 0-20 | Extreme Fear | BUY | 7.5% | Always execute |
-| 21-30 | Fear | BUY | 4% | Always execute |
-| 31-60 | Neutral | BUY* | 1% | *Only if price < MA20 |
-| 61-70 | Greed | SELL** | 4% | **Only if weak trend detected |
-| 71-80 | High Greed | SELL** | 7.5% | **Only if strong weakness confirmed |
-| 81-100 | Extreme Greed | SELL** | 10% | **Only if reversal confirmed |
+![Fear & Greed Trading Rules Table](table-fear-greed-trading-rules.md)
 
 ### Trend Filter Implementation
 
@@ -109,14 +116,7 @@ const TREND_FILTERS = {
 
 ### Dynamic Portfolio Allocation
 
-| Fear & Greed Range | Standard Target | Bull Market Target |
-|-------------------|-----------------|-------------------|
-| 0-20 (Extreme Fear) | 85% BTC | 90% BTC |
-| 21-30 (Fear) | 80% BTC | 85% BTC |
-| 31-60 (Neutral) | 75% BTC | 80% BTC |
-| 61-70 (Greed) | 70% BTC | 75% BTC |
-| 71-80 (High Greed) | 65% BTC | 70% BTC |
-| 81-100 (Extreme Greed) | 60% BTC | 75% BTC |
+![Dynamic Portfolio Allocation Table](table-dynamic-portfolio-allocation.md)
 
 ## Implementation Details
 
@@ -152,33 +152,19 @@ Here's where things got interesting. I backtested two strategies:
 
 ### 4-Year Performance Results (2021-2025)
 
-| Token | Simple DCA | Logical DCA | Difference |
-|-------|------------|-------------|------------|
-| **SOL** | €45,017 (+259%) | €30,980 (+178%) | -€14,037 (-81%) |
-| **BTC** | €32,709 (+188%) | €21,919 (+126%) | -€10,790 (-62%) |
-| **ETH** | €9,853 (+57%) | €9,007 (+52%) | -€846 (-5%) |
-| **BNB** | €16,124 (+93%) | €9,542 (+55%) | -€6,582 (-38%) |
+![4-Year Performance Results Table](table-4year-performance-results.md)
 
 **Key Finding: Simple DCA outperforms in bull markets**
 
 ### Bear Market Performance (2021-2023)
 
-| Token | Simple DCA | Logical DCA | Improvement |
-|-------|------------|-------------|-------------|
-| **BTC** | -€2,783 (-44%) | -€2,212 (-35%) | +€571 (+9%) |
-| **ETH** | -€2,644 (-42%) | -€2,055 (-33%) | +€589 (+9%) |
-| **SOL** | -€4,871 (-77%) | -€4,166 (-66%) | +€705 (+11%) |
-| **BNB** | -€1,801 (-29%) | -€1,395 (-22%) | +€406 (+7%) |
+![Bear Market Performance Table](table-bear-market-performance.md)
 
 **Key Finding: Logical DCA significantly reduces losses in bear markets**
 
 ### Risk Metrics Comparison
 
-| Metric | Simple DCA | Logical DCA | Improvement |
-|--------|------------|-------------|-------------|
-| **Avg Volatility** | 111.0% | 94.7% | -16.3% |
-| **Max Drawdown** | 50.0% | 35.3% | -29.4% |
-| **Sharpe Ratio** | 0.255 | 0.281 | +10.2% |
+![Risk Metrics Comparison Table](table-risk-metrics-comparison.md)
 
 ### The Trade-off: Profit vs Risk Management
 
