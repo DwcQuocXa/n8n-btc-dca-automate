@@ -1,0 +1,91 @@
+{
+  "testPeriod": {
+    "start": "2022-07-28",
+    "end": "2025-07-27",
+    "totalDays": 1094,
+    "totalYears": 3
+  },
+  "winner": "Simple DCA",
+  "performanceMetrics": {
+    "simple": {
+      "name": "Simple DCA (Weekly)",
+      "totalReturn": 29356.077505121793,
+      "totalReturnPercent": 186.98138538294137,
+      "cagr": 42.10779776341242,
+      "finalValue": 45056.07750512179,
+      "totalInvested": 15700,
+      "btcBalance": 0.44775282751927903,
+      "eurBalance": 0,
+      "btcAllocation": 100,
+      "totalTrades": 157,
+      "buyTrades": 157,
+      "sellTrades": 0,
+      "testDuration": 3,
+      "volatility": 89.20387493717541,
+      "maxDrawdown": null,
+      "sharpeRatio": 2.6475194746502244,
+      "sortino": 4.991659978402898,
+      "var95": -3.760994174833418,
+      "calmar": 0
+    },
+    "logical": {
+      "name": "Logical DCA (Daily Only)",
+      "totalReturn": 4760.914697849905,
+      "totalReturnPercent": 30.324297438534426,
+      "cagr": 9.229965745754276,
+      "finalValue": 20460.914697849905,
+      "totalInvested": 15700,
+      "btcBalance": 0.008522779219069958,
+      "eurBalance": 19603.291970639046,
+      "btcAllocation": 4.191517045427987,
+      "totalTrades": 531,
+      "buyTrades": 430,
+      "sellTrades": 101,
+      "testDuration": 3,
+      "volatility": 75.31259573557637,
+      "maxDrawdown": null,
+      "sharpeRatio": 2.6404527002287637,
+      "sortino": 11.875597917361866,
+      "var95": -0.9625612475443843,
+      "calmar": 0
+    },
+    "complete": {
+      "name": "Complete Logical DCA (Daily + Rebalancing)",
+      "totalReturn": 11830.11896857452,
+      "totalReturnPercent": 75.35107623295872,
+      "cagr": 20.608281364868454,
+      "finalValue": 27530.11896857452,
+      "totalInvested": 15700,
+      "btcBalance": 0.007822721789481967,
+      "eurBalance": 26742.941004337703,
+      "btcAllocation": 2.859333681541209,
+      "totalTrades": 721,
+      "dcaTrades": 689,
+      "rebalanceTrades": 32,
+      "buyTrades": 438,
+      "sellTrades": 283,
+      "testDuration": 3,
+      "volatility": 79.8892789063228,
+      "maxDrawdown": null,
+      "sharpeRatio": 2.6559845904952724,
+      "sortino": 6.947471371763809,
+      "var95": -2.1615080180343504,
+      "calmar": 0
+    }
+  },
+  "monthlyRebalancingImpact": {
+    "returnDifference": 7069.204270724615,
+    "percentDifference": 45.02677879442429,
+    "cagrDifference": 11.378315619114177,
+    "allocationDifference": -1.3321833638867777,
+    "tradesDifference": 190
+  },
+  "insights": [
+    "Performance Ranking: 1st Simple DCA (€29356), 2nd Complete Logical DCA (€11830), 3rd Logical DCA (Daily Only) (€4761)",
+    "Monthly rebalancing significantly improved performance by €7069 compared to daily-only strategy.",
+    "Complete strategy remained extremely conservative with very low BTC allocation despite rebalancing mechanism.",
+    "Complete strategy had significantly more trading activity due to monthly rebalancing.",
+    "Large performance gap: 32.9% CAGR difference between best and worst strategies."
+  ],
+  "timestamp": "2025-07-27T03:50:56.375Z"
+}

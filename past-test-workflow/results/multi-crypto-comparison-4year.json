@@ -1,0 +1,238 @@
+{
+  "title": "Multi-Cryptocurrency DCA Strategy Comparison (4 Years: 2021-2025)",
+  "testPeriod": {
+    "start": "2021-07-27",
+    "end": "2025-07-25",
+    "totalYears": 2.9
+  },
+  "tokensAnalyzed": [
+    "BTC",
+    "SOL",
+    "BNB",
+    "ETH"
+  ],
+  "rankings": {
+    "simpleStrategyCagr": [
+      "BTC",
+      "SOL",
+      "BNB",
+      "ETH"
+    ],
+    "logicalStrategyCagr": [
+      "BTC",
+      "SOL",
+      "BNB",
+      "ETH"
+    ],
+    "simpleStrategyReturns": [
+      "BTC",
+      "SOL",
+      "BNB",
+      "ETH"
+    ],
+    "logicalStrategyReturns": [
+      "BTC",
+      "SOL",
+      "BNB",
+      "ETH"
+    ],
+    "bestRiskAdjusted": [
+      "BTC",
+      "SOL",
+      "BNB",
+      "ETH"
+    ]
+  },
+  "tokenComparisons": {
+    "BTC": {
+      "simple": {
+        "tokenBalance": 0.4976223949048637,
+        "eurBalance": 0,
+        "totalValue": 50109.47542142703,
+        "tokenAllocation": 100,
+        "totalInvested": 17400,
+        "totalReturn": 32709.47542142703,
+        "totalReturnPercent": 187.98549092774155,
+        "cagr": 44.745046038396,
+        "volatility": 0.9909674371646047,
+        "maxDrawdown": 0.3798929844327444,
+        "sharpeRatio": 0.45152892375981896,
+        "trades": 174
+      },
+      "logical": {
+        "totalTokenBalance": 0.23728343096835416,
+        "totalEurBalance": 11825.68987905124,
+        "totalValue": 35719.60698118206,
+        "tokenAllocation": 66.89300113161576,
+        "totalInvested": 17400,
+        "totalReturn": 18319.606981182063,
+        "totalReturnPercent": 105.28509759300036,
+        "cagr": 28.589474359333835,
+        "coreTokenBalance": 0.23639436814490686,
+        "coreEurBalance": 9478.982720221633,
+        "coreValue": 33283.37316086015,
+        "coreTokenAllocation": 71.52036641716195,
+        "satelliteTokenBalance": 0.0008890628234473187,
+        "satelliteEurBalance": 2346.707158829607,
+        "satelliteValue": 2436.2338203219124,
+        "satelliteTokenAllocation": 3.674797580819871,
+        "volatility": 0.8637129349589093,
+        "maxDrawdown": 0.2620423493210243,
+        "sharpeRatio": 0.33100667133917544,
+        "trades": 376,
+        "coreAllocation": 71.52036641716195,
+        "satelliteAllocation": 3.674797580819871
+      },
+      "difference": {
+        "returnDifference": -14389.868440244965,
+        "returnPercentDifference": -82.7003933347412,
+        "cagrDifference": -16.155571679062163
+      }
+    },
+    "ETH": {
+      "simple": {
+        "tokenBalance": 8.639535879927644,
+        "eurBalance": 0,
+        "totalValue": 27253.156747155354,
+        "tokenAllocation": 100,
+        "totalInvested": 17400,
+        "totalReturn": 9853.156747155354,
+        "totalReturnPercent": 56.627337627329624,
+        "cagr": 16.984678571596866,
+        "volatility": 1.09399329414065,
+        "maxDrawdown": 0.6176966990784797,
+        "sharpeRatio": 0.15525395505224385,
+        "trades": 174
+      },
+      "logical": {
+        "totalTokenBalance": 6.118459776256487,
+        "totalEurBalance": 6418.262047477596,
+        "totalValue": 25718.759857885394,
+        "tokenAllocation": 75.04443416812047,
+        "totalInvested": 17400,
+        "totalReturn": 8318.759857885394,
+        "totalReturnPercent": 47.80896470049077,
+        "cagr": 14.63843584828175,
+        "coreTokenBalance": 6.117306029387786,
+        "coreEurBalance": 4607.06956567182,
+        "coreValue": 23903.927916194705,
+        "coreTokenAllocation": 80.72672582588166,
+        "satelliteTokenBalance": 0.0011537468687017466,
+        "satelliteEurBalance": 1811.1924818057757,
+        "satelliteValue": 1814.8319416906893,
+        "satelliteTokenAllocation": 0.20053977458227312,
+        "volatility": 0.9346081440877114,
+        "maxDrawdown": 0.4327334975448875,
+        "sharpeRatio": 0.1566264529245099,
+        "trades": 399,
+        "coreAllocation": 80.72672582588166,
+        "satelliteAllocation": 0.20053977458227312
+      },
+      "difference": {
+        "returnDifference": -1534.3968892699595,
+        "returnPercentDifference": -8.818372926838855,
+        "cagrDifference": -2.3462427233151164
+      }
+    },
+    "SOL": {
+      "simple": {
+        "tokenBalance": 401.7829230057481,
+        "eurBalance": 0,
+        "totalValue": 62416.977088942964,
+        "tokenAllocation": 100,
+        "totalInvested": 17400,
+        "totalReturn": 45016.977088942964,
+        "totalReturnPercent": 258.7182591318561,
+        "cagr": 56.29718993690149,
+        "volatility": 1.364001380933141,
+        "maxDrawdown": 0.686359521423108,
+        "sharpeRatio": 0.41273557874543676,
+        "trades": 174
+      },
+      "logical": {
+        "totalTokenBalance": 195.33662610118176,
+        "totalEurBalance": 13303.31220683004,
+        "totalValue": 43648.85707164863,
+        "tokenAllocation": 69.52196896016555,
+        "totalInvested": 17400,
+        "totalReturn": 26248.85707164863,
+        "totalReturnPercent": 150.85550041177373,
+        "cagr": 37.925711810555306,
+        "coreTokenBalance": 195.24404302339303,
+        "coreEurBalance": 11254.987700619018,
+        "coreValue": 41586.149784303125,
+        "coreTokenAllocation": 72.93573038380374,
+        "satelliteTokenBalance": 0.09258307778874197,
+        "satelliteEurBalance": 2048.3245062110227,
+        "satelliteValue": 2062.7072873455036,
+        "satelliteTokenAllocation": 0.6972768857083089,
+        "volatility": 1.087557831793411,
+        "maxDrawdown": 0.49101091677638603,
+        "sharpeRatio": 0.3487236329126041,
+        "trades": 385,
+        "coreAllocation": 72.93573038380374,
+        "satelliteAllocation": 0.6972768857083089
+      },
+      "difference": {
+        "returnDifference": -18768.120017294335,
+        "returnPercentDifference": -107.86275872008235,
+        "cagrDifference": -18.371478126346183
+      }
+    },
+    "BNB": {
+      "simple": {
+        "tokenBalance": 51.094456412264954,
+        "eurBalance": 0,
+        "totalValue": 33523.58379665116,
+        "tokenAllocation": 100,
+        "totalInvested": 17400,
+        "totalReturn": 16123.58379665116,
+        "totalReturnPercent": 92.66427469339747,
+        "cagr": 25.76833107006511,
+        "volatility": 0.9906582000972004,
+        "maxDrawdown": 0.3725716825365751,
+        "sharpeRatio": 0.2601132365081801,
+        "trades": 174
+      },
+      "logical": {
+        "totalTokenBalance": 27.791632330496157,
+        "totalEurBalance": 8267.828305728379,
+        "totalValue": 26502.19619409021,
+        "tokenAllocation": 68.80323334270675,
+        "totalInvested": 17400,
+        "totalReturn": 9102.196194090211,
+        "totalReturnPercent": 52.31147237982879,
+        "cagr": 15.847429882785091,
+        "coreTokenBalance": 27.697361384556135,
+        "coreEurBalance": 6333.803731998698,
+        "coreValue": 24506.319510019825,
+        "coreTokenAllocation": 74.15440646071306,
+        "satelliteTokenBalance": 0.09427094594002053,
+        "satelliteEurBalance": 1934.0245737296814,
+        "satelliteValue": 1995.8766840703884,
+        "satelliteTokenAllocation": 3.0989945839021353,
+        "volatility": 0.8734072958373382,
+        "maxDrawdown": 0.257774456708012,
+        "sharpeRatio": 0.18144375434363771,
+        "trades": 365,
+        "coreAllocation": 74.15440646071306,
+        "satelliteAllocation": 3.0989945839021353
+      },
+      "difference": {
+        "returnDifference": -7021.38760256095,
+        "returnPercentDifference": -40.35280231356868,
+        "cagrDifference": -9.920901187280018
+      }
+    }
+  },
+  "strategyEffectiveness": {
+    "tokensWhereLogicalOutperformed": [],
+    "tokensWhereSimpleOutperformed": [
+      "BTC",
+      "SOL",
+      "BNB",
+      "ETH"
+    ],
+    "averageLogicalVsSimpleReturn": -59.93358182380777
+  }
+}

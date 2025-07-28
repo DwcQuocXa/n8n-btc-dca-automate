@@ -1,0 +1,81 @@
+{
+  "testPeriod": {
+    "start": "2024-08-12",
+    "end": "2025-07-27",
+    "totalDays": 349
+  },
+  "winner": "Simple DCA (Weekly)",
+  "performanceMetrics": {
+    "logical": {
+      "totalReturn": 318.9307157389867,
+      "totalReturnPercent": 6.378614314779734,
+      "finalValue": 5318.930715738987,
+      "totalInvested": 5000,
+      "btcBalance": 0.009620182616905408,
+      "eurBalance": 4352.862741974033,
+      "btcAllocation": 18.162823044607617,
+      "totalTrades": 117,
+      "buyTrades": 106,
+      "sellTrades": 11,
+      "winRate": 45.2991452991453,
+      "volatility": 129.15529337635328,
+      "maxDrawdown": null,
+      "sharpeRatio": 3.752988198796041
+    },
+    "simple": {
+      "totalReturn": 1422.775263568271,
+      "totalReturnPercent": 28.455505271365418,
+      "finalValue": 6422.775263568271,
+      "totalInvested": 5000,
+      "btcBalance": 0.06395851287986364,
+      "eurBalance": 0,
+      "btcAllocation": 100,
+      "totalTrades": 50,
+      "buyTrades": 50,
+      "sellTrades": 0,
+      "winRate": 100,
+      "volatility": 132.91091566978403,
+      "maxDrawdown": null,
+      "sharpeRatio": 3.8440383290818776
+    }
+  },
+  "differences": {
+    "absoluteReturn": -1103.8445478292842,
+    "percentReturn": -22.076890956585686,
+    "riskAdjustedReturn": -0.09105013028583642,
+    "volatilityDifference": -3.755622293430747,
+    "maxDrawdownDifference": null
+  },
+  "tradeAnalysis": {
+    "fearGreedDistribution": {
+      "Fear": {
+        "count": 34,
+        "volume": 755.9706359678781
+      },
+      "Neutral": {
+        "count": 65,
+        "volume": 554.5318416944058
+      },
+      "Extreme Fear": {
+        "count": 7,
+        "volume": 460.3411690556414
+      },
+      "High Greed": {
+        "count": 2,
+        "volume": 696.9498777538458
+      },
+      "Greed": {
+        "count": 9,
+        "volume": 426.7565109381132
+      }
+    },
+    "avgTradeSize": 16.706072138848345,
+    "profitabilityByCondition": {}
+  },
+  "insights": [
+    "Simple DCA outperformed Logical DCA by €1103.84 (22.08%).",
+    "Logical DCA was very active with frequent trading based on market sentiment.",
+    "Logical DCA maintained a conservative BTC allocation, keeping significant EUR reserves."
+  ],
+  "timestamp": "2025-07-27T03:08:55.617Z"
+}

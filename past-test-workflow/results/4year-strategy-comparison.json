@@ -1,0 +1,91 @@
+{
+  "title": "4-Year DCA Strategy Comparison Analysis (2021-2025)",
+  "testPeriod": {
+    "start": "2021-07-27",
+    "end": "2025-07-25",
+    "totalDays": 1044,
+    "totalYears": 2.9
+  },
+  "performance": {
+    "simple": {
+      "strategy": "Simple DCA (Weekly)",
+      "totalInvested": 17400,
+      "finalValue": 50109.47542142703,
+      "totalReturn": 32709.47542142703,
+      "totalReturnPercent": 187.98549092774155,
+      "cagr": 44.745046038396,
+      "btcAllocation": 100,
+      "finalBtcBalance": 0.4976223949048637,
+      "finalEurBalance": 0
+    },
+    "logical": {
+      "strategy": "Complete Logical DCA (Core 90% + Satellite 10%)",
+      "totalInvested": 17400,
+      "finalValue": 35719.60698118206,
+      "totalReturn": 18319.606981182063,
+      "totalReturnPercent": 105.28509759300036,
+      "cagr": 28.589474359333835,
+      "btcAllocation": 66.89300113161576,
+      "finalBtcBalance": 0.23728343096835416,
+      "finalEurBalance": 11825.68987905124,
+      "corePortfolio": {
+        "value": 33283.37316086015,
+        "btcAllocation": 71.52036641716195,
+        "btcBalance": 0.23639436814490686,
+        "eurBalance": 9478.982720221633
+      },
+      "satellitePortfolio": {
+        "value": 2436.2338203219124,
+        "btcAllocation": 3.674797580819871,
+        "btcBalance": 0.0008890628234473187,
+        "eurBalance": 2346.707158829607
+      }
+    }
+  },
+  "riskAnalysis": {
+    "simple": {
+      "volatility": 0.9909674371646047,
+      "maxDrawdown": 0.3798929844327444,
+      "sharpeRatio": 0.45152892375981896
+    },
+    "logical": {
+      "volatility": 0.8637129349589093,
+      "maxDrawdown": 0.2620423493210243,
+      "sharpeRatio": 0.33100667133917544
+    }
+  },
+  "tradingActivity": {
+    "simple": {
+      "totalTrades": 174,
+      "buyTrades": 174,
+      "sellTrades": 0,
+      "avgPurchasePrice": 34966.2719728009,
+      "totalBuyVolume": 17400
+    },
+    "logical": {
+      "totalTrades": 376,
+      "buyTrades": 300,
+      "sellTrades": 76,
+      "coreRebalanceTrades": 21,
+      "satelliteDcaTrades": 355,
+      "totalBuyVolume": 18149.738591807156,
+      "totalSellVolume": 12575.42847085839
+    }
+  },
+  "insights": {
+    "returnDifference": {
+      "absolute": -14389.868440244965,
+      "percentage": -82.7003933347412,
+      "cagrDifference": -16.155571679062163
+    },
+    "riskAdjustedComparison": {
+      "simpleRiskAdjustedReturn": 4.948380165757501,
+      "logicalRiskAdjustedReturn": 4.017865732993299
+    },
+    "efficiency": {
+      "simple": 1.8798549092774155,
+      "logical": 1.0528509759300035,
+      "difference": -0.827003933347412
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "testPeriod": {
+    "start": "2022-07-28",
+    "end": "2025-07-27",
+    "totalDays": 1094,
+    "totalYears": 3
+  },
+  "winner": "Simple DCA",
+  "performanceMetrics": {
+    "simple": {
+      "name": "Simple DCA (Weekly)",
+      "totalReturn": 29356.077505121793,
+      "totalReturnPercent": 186.98138538294137,
+      "cagr": 42.10779776341242,
+      "finalValue": 45056.07750512179,
+      "totalInvested": 15700,
+      "btcBalance": 0.44775282751927903,
+      "eurBalance": 0,
+      "btcAllocation": 100,
+      "totalTrades": 157,
+      "buyTrades": 157,
+      "sellTrades": 0,
+      "testDuration": 3,
+      "volatility": 89.20387493717541,
+      "maxDrawdown": null,
+      "sharpeRatio": 2.6475194746502244,
+      "sortino": 4.991659978402898,
+      "var95": -3.760994174833418
+    },
+    "logical": {
+      "name": "Logical DCA (Daily Only)",
+      "totalReturn": 4760.914697849905,
+      "totalReturnPercent": 30.324297438534426,
+      "cagr": 9.229965745754276,
+      "finalValue": 20460.914697849905,
+      "totalInvested": 15700,
+      "btcBalance": 0.008522779219069958,
+      "eurBalance": 19603.291970639046,
+      "btcAllocation": 4.191517045427987,
+      "totalTrades": 531,
+      "buyTrades": 430,
+      "sellTrades": 101,
+      "testDuration": 3,
+      "volatility": 75.31259573557637,
+      "maxDrawdown": null,
+      "sharpeRatio": 2.6404527002287637,
+      "sortino": 11.875597917361866,
+      "var95": -0.9625612475443843
+    },
+    "corrected": {
+      "name": "CORRECTED Complete Logical DCA (Core 90% + Satellite 10%)",
+      "totalReturn": 16506.713696415565,
+      "totalReturnPercent": 104.47287149630104,
+      "cagr": 26.952097389148744,
+      "finalValue": 32306.713696415565,
+      "totalInvested": 15800,
+      "btcBalance": 0.22594269658619381,
+      "eurBalance": 9570.75085391305,
+      "btcAllocation": 70.37535001594753,
+      "totalTrades": 426,
+      "coreRebalanceTrades": 23,
+      "satelliteDcaTrades": 403,
+      "buyTrades": 337,
+      "sellTrades": 89,
+      "testDuration": 3,
+      "coreBtcAllocation": 75.74610177411904,
+      "satelliteBtcAllocation": 1.968120469859181,
+      "coreValue": 29954.909861200722,
+      "satelliteValue": 2351.8038352148446,
+      "volatility": 80.40135818033767,
+      "maxDrawdown": 20.46032816081589,
+      "sharpeRatio": 2.706831259753792,
+      "sortino": 6.703170960206694,
+      "var95": -2.584934729944682
+    }
+  },
+  "correctedArchitectureImpact": {
+    "returnDifference": 11745.79899856566,
+    "percentDifference": 74.14857405776661,
+    "cagrDifference": 17.72213164339447,
+    "allocationImprovement": 66.18383297051955
+  },
+  "insights": [
+    "Performance Ranking: 1st Simple DCA (€29356), 2nd CORRECTED Complete Logical DCA (€16507), 3rd Logical DCA (Daily Only) (€4761)",
+    "CORRECTED dual portfolio architecture successfully maintained 70.4% BTC allocation within 60-85% target range.",
+    "Monthly rebalancing with corrected architecture improved performance by €11746 (+246.7%) vs daily-only strategy.",
+    "Satellite pool reduction from 30% to 10% enabled core portfolio to maintain proper BTC allocation for rebalancing.",
+    "Simple DCA still outperformed corrected complete strategy by €12849, highlighting bull market advantage of 100% BTC allocation.",
+    "Corrected complete strategy achieved superior risk-adjusted returns (Sharpe ratio) vs Simple DCA."
+  ],
+  "timestamp": "2025-07-27T04:04:07.982Z"
+}
